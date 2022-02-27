@@ -8,16 +8,12 @@ BOT_USERNAME="wullieBot"
 bot = mineflayer.createBot({ 'host': '1b1t.me', 'port': 25565, 'username': BOT_USERNAME, 'hideErrors': False })
 Login = False
 
-#using other bots for warps and shit
-Summon = 'cd bots && python3 niggerBot.py'
-Spy = 'cd bots && python3 spy.py '
-StashBot = 'cd bots && python3 stashBot.py'
 
 
 @On(bot, 'chat',)
 def onChat(this, user, message, task, *rest):
 	if '/register' in message:
-		bot.chat('/register Linux Linux')
+		bot.chat('/register ')
 	#login and chat log, login requied on some server custom password are recomended 
 	if '/login' in message:
 		Login = True
@@ -50,13 +46,9 @@ def onChat(this, user, message, task, *rest):
 	if '%ping' in message:
 		bot.chat('!ping' + {user})
 	if '%tps' in message:
-		bot.chat('idk press tab, if tps is below 5 blame spyrow')
-	if '%niggerBot' in message:
-		bot.chat('!nword niggerBot')
+		bot.chat('idk press tab, if tps is below 5 blame someonw')
 	if '%boobs' in message:
 		bot.chat('(.) (.)')
-	if '%nword' in message:
-		bot.chat('nigger')
 	if '%noword' in message:
 		bot.chat('no')
 	if '%yesword' in message:
@@ -73,20 +65,6 @@ def onChat(this, user, message, task, *rest):
 			
 	
 	
-	#runs spy for exbase members and jq
-	@AsyncTask(start=True)
-	def handleMsg(task):
-		if '%station' in message:
-			bot.chat('brining spy online use %stop before adding another bot')
-			os.system(Spy)
-		
-	#summons niggerBot
-	@AsyncTask(start=True)
-	def break_block(task):
-		if '%summon' in message:
-			bot.chat('I summon you niggerBot to forfill your oath')
-			os.system(Summon)
-		
 	#tp players to dupe stash designd for 1b1.me
 	@AsyncTask(start=True)
 	def onChat(task):
